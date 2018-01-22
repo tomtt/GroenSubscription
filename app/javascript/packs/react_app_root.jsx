@@ -14,6 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
 				<Route exact path="/" render={() => <Splash iconName="windmill.png" />}/>
 			</div>
 		</Router>,
-    document.getElementById("screen-placeholder"),
+    document.getElementById("root"),
   )
 })

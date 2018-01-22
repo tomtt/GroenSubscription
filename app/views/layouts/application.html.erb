@@ -6,9 +6,10 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_pack_tag 'react_app_root' %>
   </head>
 
   <body>
-		<div id="screen-placeholder" class="site-box text-center center-content"><%= yield %></div>
+		<div id="root" class="site-box text-center center-content"></div>
   </body>
 </html>

@@ -26,11 +26,22 @@ body {
   box-shadow: 2px 3px 4px 1px rgba(50, 50, 50, 0.1);
 }
 
-.white-button {
-	background-color: white;
-	color: #00b900;
+.button {
 	text-decoration: none;
 	padding: 10px 20px;
 	border-radius: 2px;
 	font-weight: bold;
+}
+
+.white-bg {
+	background-color: white;
+}
+
+.vandebron-green {
+	color: #00b900;
+}
+
+.imgresponsive-img {
+	max-width: 200px;
+	margin-bottom: -10px;
 }
