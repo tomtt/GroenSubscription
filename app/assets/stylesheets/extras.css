@@ -1,0 +1,36 @@
+.splash-component .content {
+	background-color: #00b900;
+	padding: 20px;
+	color: white;
+	border-radius: 5px 5px 0 0;
+	width: auto;
+}
+
+html {
+  background: #fff;
+  color: #333;
+  font: 16px/1.4 Open Sans, Helvetica, Arial, sans-serif;
+}
+
+body {
+  max-width: 720px;
+  padding: 30px;
+  margin: 0 auto;
+}
+
+.site-box {
+  padding: 40px 60px 0;
+  margin: 0 0 3em;
+  background: #fff;
+  text-align: center;
+  box-shadow: 2px 3px 4px 1px rgba(50, 50, 50, 0.1);
+}
+
+.white-button {
+	background-color: white;
+	color: #00b900;
+	text-decoration: none;
+	padding: 10px 20px;
+	border-radius: 2px;
+	font-weight: bold;
+}
