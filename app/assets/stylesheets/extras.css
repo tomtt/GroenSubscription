@@ -1,4 +1,4 @@
-.splash-component .content {
+.content {
 	background-color: #00b900;
 	padding: 20px;
 	color: white;
@@ -31,6 +31,10 @@ body {
 	padding: 10px 20px;
 	border-radius: 2px;
 	font-weight: bold;
+}
+
+.margin-small {
+	margin: 30px;
 }
 
 .white-bg {
