@@ -2,6 +2,7 @@ import React from 'react'
 import {
   Link
 } from 'react-router-dom'
+import fetch from 'isomorphic-fetch'
 
 export default class Subscription extends React.Component {
 	// Regexp used on this class
@@ -20,7 +21,7 @@ export default class Subscription extends React.Component {
 			email: '',
 			phone: '',
 			address_street: '',
-			address_number: 0, 
+			address_number: '', 
 			address_city: '', 
 			address_zipcode: ''
     };
@@ -54,6 +55,10 @@ export default class Subscription extends React.Component {
 		return this.errorField;
 	}
 	
+	validateNonEmptyStatusOnFieldFor(fieldName) {
+		return this.state[fieldName].length > 0 ? this.correctField : this.errorField;
+	}
+	
 	emailValidationStatus() {
 		return this.validateFieldFor(this.emailRegexp, this.state.email.toLowerCase());
 	}
@@ -65,9 +70,67 @@ export default class Subscription extends React.Component {
 	zipcodeValidationStatus() {
 		return this.validateFieldFor(this.zipcodeRegexp, (this.state.address_zipcode));
 	}
+	
+	hasEmptyFields() {
+		return this.validateNonEmptyStatusOnFieldFor('name') == "warning" || 
+			this.validateNonEmptyStatusOnFieldFor('gender') == "warning" || 
+			this.validateNonEmptyStatusOnFieldFor('address_street') == "warning" ||
+			this.emailValidationStatus() == "warning" ||
+			this.emailValidationStatus() == null ||
+			this.phoneNumberValidationStatus() == "warning" ||
+			this.phoneNumberValidationStatus() == null ||
+			this.zipcodeValidationStatus() == "warning" ||
+			this.zipcodeValidationStatus() == null
+	}
+	
+	paramsForAPI() {
+		return {
+			name: this.state.name,
+			gender: this.state.gender,
+			email: this.state.email,
+			phone: this.state.phone,
+			address: [{
+				street: this.state.address_street,
+				city: this.state.address_city,
+				zipcode: this.state.address_zipcode,
+				number: this.state.address_number
+			}]
+		}
+	}
 
   onSubmit(event) {
     event.preventDefault();
+		
+		function checkStatus(response) {
+		  if (response.status >= 200 && response.status < 300) {
+		    return response;
+		  } else {
+		    var error = new Error(response.statusText);
+		    error.response = response;
+		    throw error;
+			}
+		}
+
+		if(this.hasEmptyFields()) {
+			alert('Please make sure the name, gender and street address fields are not empty :)');
+		} else {
+			var parameters = this.paramsForAPI()
+			return fetch('/api/subscriptions', {
+	        method: 'POST',
+	        body: JSON.stringify({subscription: parameters}),
+	        headers: {
+	            'Content-Type': 'application/json'
+	        }
+	    })
+			.then(checkStatus)
+			.then(function(res) {
+				alert('You have been successfully subscribed');
+				return res;
+	    }).catch(function(err) {
+				alert('We could not subscribe you. Please try again in another moment');
+				return err 
+			});
+		}
   }
 		
   render() {
@@ -83,8 +146,9 @@ export default class Subscription extends React.Component {
 					Please pick your gender:
 						<select name="gender" value={this.state.gender} onChange={ this.onFieldChange }>
 							<option value=""></option>
-	            <option value="man">Man</option>
+	            <option value="male">Male</option>
 	            <option value="female">Female</option>
+	            <option value="other">Other</option>
 	          </select>
 					</label>
 					

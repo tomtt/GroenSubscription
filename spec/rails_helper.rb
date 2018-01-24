@@ -6,6 +6,7 @@ require "spec_helper"
 require "rspec/rails"
 # Add additional requires below this line. Rails is not loaded until this point!
 require "capybara/rspec"
+require 'support/factory_bot'
 
 # Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
@@ -16,6 +17,7 @@ Capybara.register_driver :selenium_chrome do |app|
 end
 
 Capybara.javascript_driver = :selenium_chrome
+Capybara.default_max_wait_time = 10
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures

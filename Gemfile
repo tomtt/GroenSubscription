@@ -56,6 +56,7 @@ group :test do
   gem "rspec-rails"
   gem 'phantomjs'
   gem 'poltergeist'
+  gem 'factory_bot_rails', '~> 4.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
