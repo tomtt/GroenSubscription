@@ -8,6 +8,11 @@ class Api::SubscriptionsController < Api::BaseController
     end
   end
   
+  def index
+    @subscriptions = Subscription.all.map(&:with_address_unflattened)
+    render json: @subscriptions.as_json , status: :ok
+  end
+  
   protected
   def allowed_params
     params[:subscription][:address] ||= []

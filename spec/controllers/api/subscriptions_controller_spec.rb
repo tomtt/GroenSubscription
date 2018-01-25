@@ -43,4 +43,39 @@ RSpec.describe Api::SubscriptionsController, type: :controller do
     end
     
   end
+  
+  describe "GET" do
+    
+    context "with existing subscriptions" do 
+      
+      before(:each) do
+        @params = Subscription.create(FactoryBot.subscription_with_address)
+      end
+      
+      it "fetches a JSON response containing the list of available subscriptions" do 
+        get :index
+        expect(response.body).to eq([FactoryBot.subscription_with_address_as_if_persisted].to_json)
+      end 
+      
+      it "replies with a successful response" do
+        get :index
+        expect(response).to be_successful
+      end 
+    end
+    
+    context "with no subscriptions" do
+      
+      it "fetches a JSON response containing an empty subscriptions collection" do 
+        get :index
+        expect(response.body).to eq([].to_json)
+      end
+      
+      it "replies with a successful response" do
+        get :index
+        expect(response).to be_successful
+      end
+      
+    end
+    
+  end
 end

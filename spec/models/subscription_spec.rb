@@ -55,4 +55,16 @@ RSpec.describe Subscription do
     @subscription_attrs[:address][0][:zipcode] = ""
     expect(Subscription.new(@subscription_attrs).save).to be(false)
   end
+  
+  context "Given a subscription is stored" do
+    
+    before(:each) do
+      Subscription.create(FactoryBot.subscription_with_address)
+    end
+    
+    it "should be exposable with an unflattened address structure" do
+      expect(Subscription.last.with_address_unflattened).to eq(FactoryBot.subscription_with_address_as_if_persisted)
+    end
+    
+  end
 end

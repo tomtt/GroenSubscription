@@ -12,6 +12,21 @@ class Subscription < ApplicationRecord
     unpack_address_from(params)
   end
   
+  def with_address_unflattened
+    { id: id,
+      name: name, 
+      email: email, 
+      gender: gender, 
+      phone: phone, 
+      address: [{ 
+        street: address_street,
+        number: address_number,
+        city: address_city, 
+        zipcode: address_zipcode
+      }]
+    }
+  end
+  
   protected
   def unpack_address_from(params)
     address_handler = params[:address].first 
