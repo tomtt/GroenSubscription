@@ -1,4 +1,17 @@
-.splash-component .content {
+html {
+  background: #fff;
+  color: #333;
+  font: 16px/1.4 Open Sans, Helvetica, Arial, sans-serif;
+}
+
+.site-box {
+  padding: 40px 60px 0;
+  background: #fff;
+  text-align: center;
+  box-shadow: 2px 3px 4px 1px rgba(50, 50, 50, 0.1);
+}
+
+.content {
 	background-color: #00b900;
 	padding: 20px;
 	color: white;
@@ -6,31 +19,26 @@
 	width: auto;
 }
 
-html {
-  background: #fff;
-  color: #333;
-  font: 16px/1.4 Open Sans, Helvetica, Arial, sans-serif;
+.warning {
+	border: 2px solid red;
+	background-color: #FFD2CF !important;
+	color: red !important;
 }
 
-body {
-  max-width: 720px;
-  padding: 30px;
-  margin: 0 auto;
+/* Generic styles */
+
+.no-text-underlining {
+	text-decoration: none !important;
 }
 
-.site-box {
-  padding: 40px 60px 0;
-  margin: 0 0 3em;
-  background: #fff;
-  text-align: center;
-  box-shadow: 2px 3px 4px 1px rgba(50, 50, 50, 0.1);
-}
-
-.white-button {
+.white-bg {
 	background-color: white;
+}
+
+.white-text {
+	color: white !important;
+}
+
+.vandebron-green {
 	color: #00b900;
-	text-decoration: none;
-	padding: 10px 20px;
-	border-radius: 2px;
-	font-weight: bold;
 }

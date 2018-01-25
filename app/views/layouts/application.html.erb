@@ -4,11 +4,13 @@
     <title>Vandebron</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+		<%= javascript_pack_tag 'react_app_root' %>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">		
   </head>
 
   <body>
-		<div id="screen-placeholder" class="site-box text-center center-content"><%= yield %></div>
+		<div id="root" class="site-box text-center center-content container"></div>
   </body>
 </html>
