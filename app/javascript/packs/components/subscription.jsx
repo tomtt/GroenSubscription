@@ -135,38 +135,69 @@ export default class Subscription extends React.Component {
 		
   render() {
     return <div className="subscription-component">
-			<div className="content">
-				<h2>Thanks for your interest on Vandebron</h2>
-				<p>Fill in your details to be on the loop of the sustainable energy</p>
+			<div className="row">
+				<div className="col-md-2"></div>
+				<div className="col-md-8">
+					<h2>Thanks for your interest on Vandebron</h2>
+					<p>Fill-in your details to be on the loop of the sustainable energy</p>
+										
+					<div className="content">
+						<form onSubmit={this.onSubmit}>
+							<div>
+								<p><b>Personal details</b></p>
+							</div>
+						
+							<div className="my-4 text-left">
+								<div className="row">
+									<div className="col-md-8">
+										<input className="Van-TextInput-input" name="name" type="text" placeholder="Name" value={this.state.name} onChange={ this.onFieldChange } /> 
+									</div>
+									<div className="col-md-4">
+										<select className="form-control" name="gender" value={this.state.gender} onChange={ this.onFieldChange }>
+											<option value="">Select a gender</option>
+							        <option value="male">Male</option>
+							        <option value="female">Female</option>
+							        <option value="other">Other</option>
+							      </select>
+									</div>
+								</div>
+							</div>
 		
-				<form onSubmit={this.onSubmit}>
-					<input name="name" type="text" placeholder="Name" value={this.state.name} onChange={ this.onFieldChange } /> 
-					
-					<label>
-					Please pick your gender:
-						<select name="gender" value={this.state.gender} onChange={ this.onFieldChange }>
-							<option value=""></option>
-	            <option value="male">Male</option>
-	            <option value="female">Female</option>
-	            <option value="other">Other</option>
-	          </select>
-					</label>
-					
-					<input name="email" className={ this.emailValidationStatus() } type="email" placeholder="E-mail" value={this.state.email} onChange={ this.onFieldChange } /> 
-					<input name="phone" className={ this.phoneNumberValidationStatus() } type="tel" placeholder="Dutch phone number" value={this.state.phone} onChange={ this.onFieldChange } /> 
-					<hr />
-					<input name="address_street" type="text" placeholder="Street" value={this.state.street} onChange={ this.onFieldChange } /> 
-					<input name="address_number" type="text" placeholder="House Number" value={this.state.number} onChange={ this.onFieldChange } /> 
-					<input name="address_city" type="text" placeholder="City" value={this.state.city} onChange={ this.onFieldChange } /> 
-					<input name="address_zipcode" className={ this.zipcodeValidationStatus() } type="text" placeholder="Zipcode" value={this.state.zipcode} onChange={ this.onFieldChange } /> 
-					
-					<div className="margin-small">
-						<input className="button white-bg vandebron-green" type="submit" value="Submit" />
-						<Link to="/" className="button white-bg vandebron-green">Return</Link>
+							<div className="my-4">
+								<input name="email" className={ 'Van-TextInput-input ' + this.emailValidationStatus() } type="email" placeholder="E-mail" value={this.state.email} onChange={ this.onFieldChange } /> 
+							</div>
+							<div className="my-4">
+								<input name="phone" className={ 'Van-TextInput-input ' + this.phoneNumberValidationStatus() } type="tel" placeholder="Dutch phone number" value={this.state.phone} onChange={ this.onFieldChange } /> 
+							</div>
+		
+							<hr/>
+							<div>
+								<p><b>Address information</b></p>
+							</div>
+							<div className="my-4 row">
+								<div className="col-md-8">
+									<input name="address_street" className="Van-TextInput-input" type="text" placeholder="Street" value={this.state.street} onChange={ this.onFieldChange } /> 
+								</div>
+								<div className="col-md-4">
+									<input name="address_number" className="Van-TextInput-input" type="text" placeholder="House Number" value={this.state.number} onChange={ this.onFieldChange } /> 
+								</div>
+							</div>
+							<div className="my-4 row">
+								<div className="col-md-4">
+									<input name="address_zipcode" className={ 'Van-TextInput-input ' + this.zipcodeValidationStatus() } type="text" placeholder="Zipcode" value={this.state.zipcode} onChange={ this.onFieldChange } /> 
+								</div>
+								<div className="col-md-8">
+									<input name="address_city" className="Van-TextInput-input" type="text" placeholder="City" value={this.state.city} onChange={ this.onFieldChange } /> 
+								</div>
+							</div>
+							<div className="my-7">
+								<input className="mx-3 Van-Button Van-Button--warning white-text no-text-underlining" type="submit" value="Submit" />
+								<Link to="/" className="mx-3 Van-Button Van-Button--success no-text-underlining white-text">Cancel</Link>
+							</div>
+						</form>
 					</div>
-					
-				</form>
-				
+				</div>
+				<div className="col-md-2"></div>
 			</div>
 		</div>;
   }
