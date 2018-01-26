@@ -18,3 +18,13 @@ For executing the specs contained in this application you have to follow the nex
 1. Execute `rake db:create RAILS_ENV=test && rake db:migrate RAILS_ENV=test`
 2. Run the following command: `rspec spec/`
 3. All the test suite should pass and show a green cascade of lines
+
+#### Explanation
+
+I decided to use this set of technology tools because it's the one I have more experience with and allows to build simple web applications with. In the case of Ruby on Rails 5.1 for example, it has improved to integrate almost seamlesly with webpack to support the new JS frameworks out there. In the case of `ReactJS` it has been much more easier to integrate with it and to manage the JS libraries that what it was available just one or two years ago: *react-rails*.
+
+On the implementation, I went for the simplest solutions as for example, for handling the data storage I just used the out of the box provided database which can be used only in development environment. In the case of the API endpoints; the `subscription` fields and the fields for the `address` are structured according to the specification, however, in the internals of the API, they don't have a model/table for each one, therefore some field massaging is done on the backend to adjust the structure to be stored on a single table: subscriptions. In this case, the current solution would only support an address per subscription, as requested on the challenge description, even though the structuring of the fields on the subscription-address could imply a possibility of supporting multiple addresses on the subscription. 
+
+The validation of data is covered at the three important levels: client side (JS), backend API(ORM layer) and database layer, for the fields that require it. 
+
+The website is responsive using Twitter bootstrap directly and the styles defined on [this](https://vandebron.github.io/styleguide) Vandebron style guide. 
