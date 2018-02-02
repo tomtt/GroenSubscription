@@ -1,18 +1,15 @@
-html {
-  background: #fff;
+html, body {
+  background: #EEEDF0;
   color: #333;
   font: 16px/1.4 Open Sans, Helvetica, Arial, sans-serif;
 }
 
 .site-box {
   padding: 40px 60px 0;
-  background: #fff;
   text-align: center;
-  box-shadow: 2px 3px 4px 1px rgba(50, 50, 50, 0.1);
 }
 
 .content {
-	background-color: #00b900;
 	padding: 20px;
 	color: white;
 	border-radius: 5px 5px 0 0;
@@ -40,5 +37,17 @@ html {
 }
 
 .vandebron-green {
-	color: #00b900;
+	color: rgb(67,176,42);
+}
+
+.vandebron-gray-bg {
+	background-color: #EEEDF0;
+}
+
+.vandebron-green-bg {
+	background-color: #00b900;
+}
+
+.vandebron-white-bg {
+	background-color: white;
 }

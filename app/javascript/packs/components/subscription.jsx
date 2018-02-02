@@ -138,43 +138,45 @@ export default class Subscription extends React.Component {
 			<div className="row">
 				<div className="col-md-2"></div>
 				<div className="col-md-8">
-					<h2>Thanks for your interest on Vandebron</h2>
-					<p>Fill-in your details to be on the loop of the sustainable energy</p>
+					<p className="Van-u-text--h1">Thanks for your interest on Vandebron</p>
+		
+					<p className="Van-u-text-bold">Fill-in your details to be on the loop of the sustainable energy movement</p>
 										
-					<div className="content">
+					<div className="content vandebron-white-bg">
 						<form onSubmit={this.onSubmit}>
-							<div>
-								<p><b>Personal details</b></p>
-							</div>
+							<p className="Van-u-text--h2">Personal details</p>
 						
-							<div className="my-4 text-left">
-								<div className="row">
+							<div className="text-left">
+								<div className="row form-row">
 									<div className="col-md-8">
-										<input className="Van-TextInput-input" name="name" type="text" placeholder="Name" value={this.state.name} onChange={ this.onFieldChange } /> 
+										<input className="txbox __m input-margin-bottom" name="name" type="text" placeholder="Name" value={this.state.name} onChange={ this.onFieldChange } /> 
 									</div>
 									<div className="col-md-4">
-										<select className="form-control" name="gender" value={this.state.gender} onChange={ this.onFieldChange }>
-											<option value="">Select a gender</option>
-							        <option value="male">Male</option>
-							        <option value="female">Female</option>
-							        <option value="other">Other</option>
-							      </select>
+										<div className="select-wrapper">
+											<select className="select" name="gender" value={this.state.gender} onChange={ this.onFieldChange }>
+												<option value="">Select a gender</option>
+								        <option value="male">Male</option>
+								        <option value="female">Female</option>
+								        <option value="other">Other</option>
+								      </select>
+										</div>
 									</div>
 								</div>
 							</div>
 		
-							<div className="my-4">
-								<input name="email" className={ 'Van-TextInput-input ' + this.emailValidationStatus() } type="email" placeholder="E-mail" value={this.state.email} onChange={ this.onFieldChange } /> 
-							</div>
-							<div className="my-4">
-								<input name="phone" className={ 'Van-TextInput-input ' + this.phoneNumberValidationStatus() } type="tel" placeholder="Dutch phone number" value={this.state.phone} onChange={ this.onFieldChange } /> 
+							<div className="form-row row">
+								<div className="col-md-6">
+									<input name="email" className={ 'txbox __m input-margin-bottom ' + this.emailValidationStatus() } type="email" placeholder="E-mail" value={this.state.email} onChange={ this.onFieldChange } /> 
+								</div>
+								<div className="col-md-6">
+									<input name="phone" className={ 'txbox __m input-margin-bottom ' + this.phoneNumberValidationStatus() } type="tel" placeholder="Dutch phone number" value={this.state.phone} onChange={ this.onFieldChange } /> 
+								</div>
 							</div>
 		
 							<hr/>
-							<div>
-								<p><b>Address information</b></p>
-							</div>
-							<div className="my-4 row">
+							
+							<p className="Van-u-text--h2">Address info</p>
+							<div className="form-row row">
 								<div className="col-md-8">
 									<input name="address_street" className="Van-TextInput-input" type="text" placeholder="Street" value={this.state.street} onChange={ this.onFieldChange } /> 
 								</div>
@@ -182,7 +184,7 @@ export default class Subscription extends React.Component {
 									<input name="address_number" className="Van-TextInput-input" type="text" placeholder="House Number" value={this.state.number} onChange={ this.onFieldChange } /> 
 								</div>
 							</div>
-							<div className="my-4 row">
+							<div className="form-row row">
 								<div className="col-md-4">
 									<input name="address_zipcode" className={ 'Van-TextInput-input ' + this.zipcodeValidationStatus() } type="text" placeholder="Zipcode" value={this.state.zipcode} onChange={ this.onFieldChange } /> 
 								</div>
@@ -190,9 +192,15 @@ export default class Subscription extends React.Component {
 									<input name="address_city" className="Van-TextInput-input" type="text" placeholder="City" value={this.state.city} onChange={ this.onFieldChange } /> 
 								</div>
 							</div>
-							<div className="my-7">
-								<input className="mx-3 Van-Button Van-Button--warning white-text no-text-underlining" type="submit" value="Submit" />
-								<Link to="/" className="mx-3 Van-Button Van-Button--success no-text-underlining white-text">Cancel</Link>
+							<div className="form-row row">
+								<div className="col-md-4"></div>
+								<div className="col-md-2 form-row">
+									<input className="Van-Button Van-Button--warning white-text no-text-underlining" type="submit" value="Submit" />
+								</div>
+								<div className="col-md-2 form-row">
+									<Link to="/" className="Van-Button Van-Button--success no-text-underlining white-text">Cancel</Link>
+								</div>
+								<div className="col-md-4"></div>
 							</div>
 						</form>
 					</div>
