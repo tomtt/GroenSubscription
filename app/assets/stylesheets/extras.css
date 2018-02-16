@@ -1,0 +1,53 @@
+html, body {
+  background: #EEEDF0;
+  color: #333;
+  font: 16px/1.4 Open Sans, Helvetica, Arial, sans-serif;
+}
+
+.site-box {
+  padding: 40px 60px 0;
+  text-align: center;
+}
+
+.content {
+	padding: 20px;
+	color: white;
+	border-radius: 5px 5px 0 0;
+	width: auto;
+}
+
+.warning {
+	border: 2px solid red;
+	background-color: #FFD2CF !important;
+	color: red !important;
+}
+
+/* Generic styles */
+
+.no-text-underlining {
+	text-decoration: none !important;
+}
+
+.white-bg {
+	background-color: white;
+}
+
+.white-text {
+	color: white !important;
+}
+
+.vandebron-green {
+	color: rgb(67,176,42);
+}
+
+.vandebron-gray-bg {
+	background-color: #EEEDF0;
+}
+
+.vandebron-green-bg {
+	background-color: #00b900;
+}
+
+.vandebron-white-bg {
+	background-color: white;
+}
